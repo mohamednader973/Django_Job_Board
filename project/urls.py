@@ -24,7 +24,7 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('job/', include('job.urls')),
+    path('job/', include('job.urls',namespace='jobs')),
 ]
 print("this is static root")
 
