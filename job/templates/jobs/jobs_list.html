@@ -134,7 +134,7 @@
                                             <img src="img/svg_icon/1.svg" alt="">
                                         </div>
                                         <div class="jobs_conetent">
-                                            <a href="{% url 'jobs:job_detail' job.slug %}"><h4>{{job}}</h4></a>
+                                            <a href="{% url 'jobs:job_detail' job.id %}"><h4>{{job}}</h4></a>
                                             <div class="links_locat d-flex align-items-center">
                                                 <div class="location">
                                                     <p> <i class="fa fa-map-marker"></i> California, USA</p>
@@ -148,7 +148,7 @@
                                     <div class="jobs_right">
                                         <div class="apply_now">
                                             <a class="heart_mark" href="#"> <i class="fa fa-heart"></i> </a>
-                                            <a href="{% url 'jobs:job_detail' job.slug %}" class="boxed-btn3">Apply Now</a>
+                                            <a href="{% url 'jobs:job_detail' job.id %}" class="boxed-btn3">Apply Now</a>
                                         </div>
                                         <div class="date">
                                             <p>Date line: {{job.published_At | date:'d M o'}}</p>
@@ -157,7 +157,7 @@
                                 </div>
                             </div>
                             {% endfor %}
-
+                            
                                 </div>
                             </div>
                         </div>
@@ -169,9 +169,10 @@
                                         {% if jobs.has_previous%}
                                         <li><a href="?page={{jobs.previous_page_number}}"> <i class="ti-angle-left"></i> </a></li>
                                         {% endif %}
-                                        {% for i in jobs.paginator.page_range %}
-                                        <li><a href="?page={{i}}"><span>{{i}}</span></a></li>
+                                        {%for i in jobs%}
+                                        <li><a href="#"><span>01</span></a></li>
                                         {% endfor %}
+                    
                                         {% if jobs.has_next%}
                                         <li><a href="?page={{jobs.next_page_number}}"> <i class="ti-angle-right"></i> </a></li>
                                         {% endif %}
