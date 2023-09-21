@@ -1,0 +1,38 @@
+
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block body %}
+    <div class="job_details_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mx-auto">
+                    <div class="job_sumary">
+                        <div class="summery_header">
+                            <h3>Job Summery</h3>
+                        </div>
+                        <div class="job_content">
+                            <ul>
+                                <li>Name: <span>{{Profiles.user.username}}</span></li>
+                                <li>Email: <span>{{Profiles.user.email}}</span></li>
+                                <li>Phone Number: <span>{{Profiles.phone_number}}</span></li>
+                                <li>Address: <span>{{Profiles.city}}</span></li>
+                            </ul>
+                        </div>
+                        <div class="p-5">
+                          <a href="" class="boxed-btn3 w-100">Edit profile</a>
+                        </div>
+                    </div>
+                    <div class="share_wrap d-flex">
+                        <span>Share at:</span>
+                        <ul>
+                            <li><a href="#"> <i class="fa fa-facebook"></i></a> </li>
+                            <li><a href="#"> <i class="fa fa-google-plus"></i></a> </li>
+                            <li><a href="#"> <i class="fa fa-twitter"></i></a> </li>
+                            <li><a href="#"> <i class="fa fa-envelope"></i></a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body%}

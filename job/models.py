@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -15,6 +16,7 @@ def image_upload_name(instance,image_name):
 
 class job(models.Model):
     title=models.CharField(max_length=100)
+    author=models.ForeignKey(User,related_name="job_owner",on_delete=models.CASCADE)
     job_type=models.CharField(max_length=15,choices=Job_type)
     description=models.TextField(max_length=1000)
     published_At=models.DateTimeField(auto_now=True)
@@ -41,7 +43,7 @@ class category(models.Model):
 
 def file_upload_name(instance,file_name):
     filName,ext=file_name.split(".")
-    
+
     app=applicants.objects.latest('id').id
 
     return "applicants/%s.%s"%(app+1,ext)
