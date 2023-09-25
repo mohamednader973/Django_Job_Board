@@ -23,12 +23,13 @@
                 <div class="col-lg-10 mx-auto">
 
                     <div class="apply_job_form white-bg">
-                        <h4>Post a New Job</h4>
+                        <h4>Edit Your Profile</h4>
                         <form action="#" method="post" enctype="multipart/form-data">
                           {% csrf_token %}
-                          {% bootstrap_form form %}
+                          {% bootstrap_form userform %}
+                          {% bootstrap_form profileform %}
                           {% buttons %}
-                             <button class="boxed-btn3 w-100" type="submit">Edit Now</button>
+                             <button class="boxed-btn3 w-100" type="submit">Edit User</button>
                           {% endbuttons %}
                         </form>
                     </div>

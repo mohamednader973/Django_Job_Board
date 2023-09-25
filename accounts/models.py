@@ -14,7 +14,9 @@ class Userprofile(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE)
     phone_number=models.CharField(max_length=15)
     img=models.ImageField(upload_to=image_upload_name)
-    city=models.ForeignKey(User,related_name="user_city",on_delete=models.CASCADE,blank=True,null=True)
+    city=models.ForeignKey('city',related_name="user_city",on_delete=models.CASCADE,blank=True,null=True)
+    def __str__(self):
+        return str(self.user)
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
@@ -24,3 +26,5 @@ def create_user_profile(sender, instance, created, **kwargs):
 
 class city(models.Model):
     city=models.CharField(max_length=30)
+    def __str__(self):
+        return self.city
